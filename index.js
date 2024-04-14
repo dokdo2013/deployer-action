@@ -26,7 +26,14 @@ async function run() {
     core.info(`Deployment Success: ${response.data}`);
   } catch (error) {
     core.setFailed(`Deployment failed: ${error}`);
-    core.error(error);
+
+    // axios error handling
+    core.error(`Error: ${error.response.data}`);
+    core.error(`Status: ${error.response.status}`);
+    core.error(`Headers: ${JSON.stringify(error.response.headers)}`);
+    core.error(`Config: ${JSON.stringify(error.config)}`);
+    core.error(`Request: ${JSON.stringify(error.request)}`);
+    core.error(`Stack: ${error.stack}`);
   }
 }
 
