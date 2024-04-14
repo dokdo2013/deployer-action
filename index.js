@@ -14,6 +14,10 @@ async function run() {
       scripts = [scripts];
     }
 
+    console.log("API URL:", apiUrl);
+    console.log("Base Path:", basePath);
+    console.log("Scripts:", scripts);
+
     const response = await axios.post(apiUrl, {
       token: deployToken,
       basePath,
