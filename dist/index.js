@@ -33546,7 +33546,7 @@ async function run() {
     core.setFailed(`Deployment failed: ${error}`);
 
     // axios error handling
-    core.error(`Error: ${error.response.data}`);
+    core.error(`Error: ${JSON.stringify(error)}`);
     core.error(`Status: ${error.response.status}`);
     core.error(`Headers: ${JSON.stringify(error.response.headers)}`);
     core.error(`Config: ${JSON.stringify(error.config)}`);
