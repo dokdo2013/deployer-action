@@ -33521,6 +33521,8 @@ async function run() {
     const deployToken = core.getInput("deploy_token");
     let scripts = core.getInput("scripts");
 
+    core.info(`Scripts Type: ${typeof scripts}`);
+
     try {
       scripts = JSON.parse(scripts);
     } catch (error) {
@@ -33530,6 +33532,7 @@ async function run() {
     core.info(`Deploying to API URL: ${apiUrl}`);
     core.info(`Base Path: ${basePath}`);
     core.info(`Scripts: ${scripts}`);
+
     const response = await axios.post(apiUrl, {
       token: deployToken,
       basePath,
