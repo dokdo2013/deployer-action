@@ -14,17 +14,16 @@ async function run() {
       scripts = [scripts];
     }
 
-    core.info("Deploying to API URL:", apiUrl);
-    core.info("Base Path:", basePath);
-    core.info("Scripts:", scripts);
-
+    core.info(`Deploying to API URL: ${apiUrl}`);
+    core.info(`Base Path: ${basePath}`);
+    core.info(`Scripts: ${scripts}`);
     const response = await axios.post(apiUrl, {
       token: deployToken,
       basePath,
       scripts,
     });
 
-    core.info("Deployment Success:", response.data);
+    core.info(`Deployment Success: ${response.data}`);
   } catch (error) {
     core.setFailed(`Deployment failed: ${error}`);
     core.error(error);
