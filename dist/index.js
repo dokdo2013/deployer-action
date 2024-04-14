@@ -33524,7 +33524,7 @@ async function run() {
     core.info(`Scripts Type: ${typeof scripts}`);
 
     try {
-      scripts = JSON.parse(scripts);
+      scripts = scripts.split("\n");
     } catch (error) {
       scripts = [scripts];
     }
@@ -33532,6 +33532,7 @@ async function run() {
     core.info(`Deploying to API URL: ${apiUrl}`);
     core.info(`Base Path: ${basePath}`);
     core.info(`Scripts: ${scripts}`);
+    core.info(`Scripts Parse: ${JSON.stringify(scripts)}`);
 
     const response = await axios.post(apiUrl, {
       token: deployToken,
