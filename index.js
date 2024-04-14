@@ -14,9 +14,9 @@ async function run() {
       scripts = [scripts];
     }
 
-    console.log("API URL:", apiUrl);
-    console.log("Base Path:", basePath);
-    console.log("Scripts:", scripts);
+    core.log("Deploying to API URL:", apiUrl);
+    core.log("Base Path:", basePath);
+    core.log("Scripts:", scripts);
 
     const response = await axios.post(apiUrl, {
       token: deployToken,
@@ -24,7 +24,7 @@ async function run() {
       scripts,
     });
 
-    console.log("Deployment Success:", response.data);
+    core.log("Deployment Success:", response.data);
   } catch (error) {
     core.setFailed(`Deployment failed: ${error}`);
     core.error(error);
