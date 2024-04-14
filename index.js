@@ -20,6 +20,7 @@ async function run() {
     core.info(`Base Path: ${basePath}`);
     core.info(`Scripts: ${scripts}`);
     core.info(`Scripts Parse: ${JSON.stringify(scripts)}`);
+    core.info(`Scripts Type: ${typeof scripts}`);
 
     const response = await axios.post(apiUrl, {
       token: deployToken,
