@@ -33519,12 +33519,18 @@ async function run() {
     const apiUrl = core.getInput("api_url");
     const basePath = core.getInput("base_path");
     const deployToken = core.getInput("deploy_token");
-    const scripts = core.getInput("scripts");
+    let scripts = core.getInput("scripts");
+
+    try {
+      scripts = JSON.parse(scripts);
+    } catch (error) {
+      scripts = [scripts];
+    }
 
     const response = await axios.post(apiUrl, {
       token: deployToken,
       basePath,
-      scripts: JSON.parse(scripts), // scripts는 JSON 문자열로 가정
+      scripts,
     });
 
     console.log("Deployment Success:", response.data);
