@@ -23,6 +23,7 @@ async function run() {
     console.log("Deployment Success:", response.data);
   } catch (error) {
     core.setFailed(`Deployment failed: ${error}`);
+    core.error(error);
   }
 }
 
