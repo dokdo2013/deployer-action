@@ -36,7 +36,6 @@ async function run() {
     core.error(`Status: ${error.response.status}`);
     core.error(`Headers: ${JSON.stringify(error.response.headers)}`);
     core.error(`Config: ${JSON.stringify(error.config)}`);
-    core.error(`Request: ${JSON.stringify(error.request)}`);
     core.error(`Stack: ${error.stack}`);
   }
 }
